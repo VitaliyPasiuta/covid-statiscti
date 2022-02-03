@@ -1,0 +1,36 @@
+.pop-up-wrapper{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.26);
+}
+
+.pop-up{
+  padding: 16px;
+  text-align: center;
+  width: 30%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.pop-up p{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pop-up p > span:nth-child(1) > span{
+  margin-left: 16px;
+}
+
+.pop-up input{
+  padding: 11px 70px;
+  background-color: #2196F3;
+  border-radius: 20px;
+  color: white;
+  border: 0;
+}

@@ -1,0 +1,15 @@
+li{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 26px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+li span:nth-child(1) > span{
+  margin: 0 16px;
+}
