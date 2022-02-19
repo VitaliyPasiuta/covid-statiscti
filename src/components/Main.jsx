@@ -17,7 +17,7 @@ export const Main = () => {
         })
       : [];
   const choiseItem = (country) => {
-    let res = filteredResult.filter((el) => {
+    const res = filteredResult.filter((el) => {
       return el.Country.toLowerCase().includes(country.toLowerCase());
     });
     setDataPopUp(res);

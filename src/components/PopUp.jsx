@@ -10,7 +10,7 @@ export const PopUp = ({
   totalRecovered,
   closePopUp,
 }) => {
-  console.log(totalConfirmed);
+  //console.log(totalConfirmed);
   return (
     <div className="pop-up-wrapper">
       <div className="pop-up">
