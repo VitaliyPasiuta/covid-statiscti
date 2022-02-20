@@ -18,7 +18,7 @@ export const Main = () => {
         ? filterData(statisticSummary.Countries, searchfield)
         : []
     );
-  }, [searchfield]);
+  }, [searchfield, statisticSummary]);
 
   function filterData(parent, element) {
     return parent.filter((el) => {
