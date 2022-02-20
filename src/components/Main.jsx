@@ -17,12 +17,12 @@ export const Main = () => {
     });
   }
 
-  const filteredResult =
+  const filteredStatisticSummary =
     Object.keys(statisticSummary).length !== 0
       ? filterData(statisticSummary.Countries, searchfield)
       : [];
   const choiseItem = (country) => {
-    const res = filterData(filteredResult, country);
+    const res = filterData(filteredStatisticSummary, country);
     setDataPopUp(res);
     setShowPopUp(true);
   };
@@ -34,8 +34,8 @@ export const Main = () => {
     <div className="main">
       <Header searchChange={setSearchfield} />
       <div className="list-wrapper">
-        {Object.keys(filteredResult).length !== 0 && (
-          <List countriesObj={filteredResult} choiseItem={choiseItem} />
+        {Object.keys(filteredStatisticSummary).length !== 0 && (
+          <List countriesObj={filteredStatisticSummary} choiseItem={choiseItem} />
         )}
       </div>
       {showPopUp && Object.keys(dataPopUp).length !== 0 && (
