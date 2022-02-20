@@ -1,6 +1,6 @@
-import Confirmed from "../img/Confirmed.png";
-import Deaths from "../img/Deaths.png";
-import Reacovered from "../img/Recovered.png";
+import confirmedImg from "../img/Confirmed.png";
+import deathsImg from "../img/Deaths.png";
+import reacoveredImg from "../img/Recovered.png";
 import "../css/PopUp.css";
 
 export const PopUp = ({
@@ -17,7 +17,7 @@ export const PopUp = ({
         <h1>{name}</h1>
         <p>
           <span>
-            <img src={Confirmed} alt="Confirmed" />
+            <img src={confirmedImg} alt="Confirmed" />
             <span>Total Confirmed</span>{" "}
           </span>
 
@@ -25,7 +25,7 @@ export const PopUp = ({
         </p>
         <p>
           <span>
-            <img src={Deaths} alt="Deaths" />
+            <img src={deathsImg} alt="Deaths" />
             <span>Total Deaths</span>
           </span>
 
@@ -33,7 +33,7 @@ export const PopUp = ({
         </p>
         <p>
           <span>
-            <img src={Reacovered} alt="Reacovered" />
+            <img src={reacoveredImg} alt="Reacovered" />
             <span>Total Recovered</span>
           </span>
 

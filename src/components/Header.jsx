@@ -1,10 +1,10 @@
-import logo from "../img/header.png";
+import logoImg from "../img/header.png";
 import "../css/Header.css";
 
 export const Header = ({ searchChange }) => {
   return (
     <header>
-      <img src={logo} alt="logo" />
+      <img src={logoImg} alt="logo" />
 
       <div>
         <input
