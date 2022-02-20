@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const useGetCountry = () => {
-  const [result, setResult] = useState({});
+export const useCovidStatisticSummary = () => {
+  const [statisticSummary, setStatisticSummary] = useState({});
 
   useEffect(() => {
     fetch("https://api.covid19api.com/summary")
@@ -9,12 +9,12 @@ export const useGetCountry = () => {
         return response.json();
       })
       .then((country) => {
-        setResult(country);
+        setStatisticSummary(country);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  return result;
+  return statisticSummary;
 };

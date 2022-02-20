@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Header } from "./Header";
 import { List } from "./List";
 import { PopUp } from "./PopUp";
-import { useGetCountry } from "../api/useGetCountry";
+import { useCovidStatisticSummary } from "../api/useCovidStatisticSummary";
 import "../css/Main.css";
 
 export const Main = () => {
   const [searchfield, setSearchfield] = useState("");
   const [showPopUp, setShowPopUp] = useState(false);
   const [dataPopUp, setDataPopUp] = useState({});
-  const result = useGetCountry();
+  const statisticSummary = useCovidStatisticSummary();
 
   function filterData(parent, element) {
     return parent.filter((el) => {
@@ -18,8 +18,8 @@ export const Main = () => {
   }
 
   const filteredResult =
-    Object.keys(result).length !== 0
-      ? filterData(result.Countries, searchfield)
+    Object.keys(statisticSummary).length !== 0
+      ? filterData(statisticSummary.Countries, searchfield)
       : [];
   const choiseItem = (country) => {
     const res = filterData(filteredResult, country);
