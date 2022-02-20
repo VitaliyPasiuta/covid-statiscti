@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "./Header";
 import { List } from "./List";
 import { PopUp } from "./PopUp";
@@ -9,7 +9,16 @@ export const Main = () => {
   const [searchfield, setSearchfield] = useState("");
   const [showPopUp, setShowPopUp] = useState(false);
   const [dataPopUp, setDataPopUp] = useState({});
+  const [filteredStatisticSummary, setFilteredStatisticSummary] = useState([]);
   const statisticSummary = useCovidStatisticSummary();
+
+  useEffect(() => {
+    setFilteredStatisticSummary(
+      Object.keys(statisticSummary).length !== 0
+        ? filterData(statisticSummary.Countries, searchfield)
+        : []
+    );
+  }, [searchfield]);
 
   function filterData(parent, element) {
     return parent.filter((el) => {
@@ -17,15 +26,12 @@ export const Main = () => {
     });
   }
 
-  const filteredStatisticSummary =
-    Object.keys(statisticSummary).length !== 0
-      ? filterData(statisticSummary.Countries, searchfield)
-      : [];
   const choiseItem = (country) => {
     const res = filterData(filteredStatisticSummary, country);
     setDataPopUp(res);
     setShowPopUp(true);
   };
+
   const closePopUp = () => {
     setShowPopUp(false);
   };
@@ -35,7 +41,10 @@ export const Main = () => {
       <Header searchChange={setSearchfield} />
       <div className="list-wrapper">
         {Object.keys(filteredStatisticSummary).length !== 0 && (
-          <List countriesObj={filteredStatisticSummary} choiseItem={choiseItem} />
+          <List
+            countriesObj={filteredStatisticSummary}
+            choiseItem={choiseItem}
+          />
         )}
       </div>
       {showPopUp && Object.keys(dataPopUp).length !== 0 && (
