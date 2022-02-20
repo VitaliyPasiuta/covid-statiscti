@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Header } from "./Header";
 import { List } from "./List";
 import { PopUp } from "./PopUp";
@@ -11,16 +11,18 @@ export const Main = () => {
   const [dataPopUp, setDataPopUp] = useState({});
   const result = useGetCountry();
 
+  function filterData(parent, element) {
+    return parent.filter((el) => {
+      return el.Country.toLowerCase().includes(element.toLowerCase());
+    });
+  }
+
   const filteredResult =
     Object.keys(result).length !== 0
-      ? result.Countries.filter((el) => {
-          return el.Country.toLowerCase().includes(searchfield.toLowerCase());
-        })
+      ? filterData(result.Countries, searchfield)
       : [];
   const choiseItem = (country) => {
-    const res = filteredResult.filter((el) => {
-      return el.Country.toLowerCase().includes(country.toLowerCase());
-    });
+    const res = filterData(filteredResult, country);
     setDataPopUp(res);
     setShowPopUp(true);
   };
